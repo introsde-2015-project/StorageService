@@ -9,16 +9,16 @@ import javax.xml.bind.annotation.XmlType;
 
 
 /**
- * <p>Java class for readMeasureTypesResponse complex type.
+ * <p>Java class for readPersonMeasureHistoryResponse complex type.
  * 
  * <p>The following schema fragment specifies the expected content contained within this class.
  * 
  * <pre>
- * &lt;complexType name="readMeasureTypesResponse">
+ * &lt;complexType name="readPersonMeasureHistoryResponse">
  *   &lt;complexContent>
  *     &lt;restriction base="{http://www.w3.org/2001/XMLSchema}anyType">
  *       &lt;sequence>
- *         &lt;element name="measuretypes" type="{http://soap.project.introsde/}measureType" maxOccurs="unbounded" minOccurs="0"/>
+ *         &lt;element name="measurehistory" type="{http://soap.project.introsde/}Measure" maxOccurs="unbounded" minOccurs="0"/>
  *       &lt;/sequence>
  *     &lt;/restriction>
  *   &lt;/complexContent>
@@ -28,40 +28,40 @@ import javax.xml.bind.annotation.XmlType;
  * 
  */
 @XmlAccessorType(XmlAccessType.FIELD)
-@XmlType(name = "readMeasureTypesResponse", propOrder = {
-    "measuretypes"
+@XmlType(name = "readPersonMeasureHistoryResponse", propOrder = {
+    "measurehistory"
 })
-public class ReadMeasureTypesResponse {
+public class ReadPersonMeasureHistoryResponse {
 
-    protected List<String> measuretypes;
+    protected List<Measure> measurehistory;
 
     /**
-     * Gets the value of the measuretypes property.
+     * Gets the value of the measurehistory property.
      * 
      * <p>
      * This accessor method returns a reference to the live list,
      * not a snapshot. Therefore any modification you make to the
      * returned list will be present inside the JAXB object.
-     * This is why there is not a <CODE>set</CODE> method for the measuretypes property.
+     * This is why there is not a <CODE>set</CODE> method for the measurehistory property.
      * 
      * <p>
      * For example, to add a new item, do as follows:
      * <pre>
-     *    getMeasuretypes().add(newItem);
+     *    getMeasurehistory().add(newItem);
      * </pre>
      * 
      * 
      * <p>
      * Objects of the following type(s) are allowed in the list
-     * {@link String }
+     * {@link Measure }
      * 
      * 
      */
-    public List<String> getMeasuretypes() {
-        if (measuretypes == null) {
-            measuretypes = new ArrayList<String>();
+    public List<Measure> getMeasurehistory() {
+        if (measurehistory == null) {
+            measurehistory = new ArrayList<Measure>();
         }
-        return this.measuretypes;
+        return this.measurehistory;
     }
 
 }

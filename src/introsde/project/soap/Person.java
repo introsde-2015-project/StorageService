@@ -1,8 +1,11 @@
 
 package introsde.project.soap;
 
+import java.util.ArrayList;
+import java.util.List;
 import javax.xml.bind.annotation.XmlAccessType;
 import javax.xml.bind.annotation.XmlAccessorType;
+import javax.xml.bind.annotation.XmlElement;
 import javax.xml.bind.annotation.XmlType;
 
 
@@ -21,6 +24,7 @@ import javax.xml.bind.annotation.XmlType;
  *         &lt;element name="lastname" type="{http://www.w3.org/2001/XMLSchema}string" minOccurs="0"/>
  *         &lt;element name="birthdate" type="{http://www.w3.org/2001/XMLSchema}string" minOccurs="0"/>
  *         &lt;element name="healthProfile" type="{http://soap.project.introsde/}healthProfile" minOccurs="0"/>
+ *         &lt;element name="goals" type="{http://soap.project.introsde/}Goal" maxOccurs="unbounded" minOccurs="0"/>
  *       &lt;/sequence>
  *     &lt;/restriction>
  *   &lt;/complexContent>
@@ -35,7 +39,8 @@ import javax.xml.bind.annotation.XmlType;
     "firstname",
     "lastname",
     "birthdate",
-    "healthProfile"
+    "healthProfile",
+    "goals"
 })
 public class Person {
 
@@ -44,6 +49,8 @@ public class Person {
     protected String lastname;
     protected String birthdate;
     protected HealthProfile healthProfile;
+    @XmlElement(nillable = true)
+    protected List<Goal> goals;
 
     /**
      * Gets the value of the idPerson property.
@@ -155,6 +162,35 @@ public class Person {
      */
     public void setHealthProfile(HealthProfile value) {
         this.healthProfile = value;
+    }
+
+    /**
+     * Gets the value of the goals property.
+     * 
+     * <p>
+     * This accessor method returns a reference to the live list,
+     * not a snapshot. Therefore any modification you make to the
+     * returned list will be present inside the JAXB object.
+     * This is why there is not a <CODE>set</CODE> method for the goals property.
+     * 
+     * <p>
+     * For example, to add a new item, do as follows:
+     * <pre>
+     *    getGoals().add(newItem);
+     * </pre>
+     * 
+     * 
+     * <p>
+     * Objects of the following type(s) are allowed in the list
+     * {@link Goal }
+     * 
+     * 
+     */
+    public List<Goal> getGoals() {
+        if (goals == null) {
+            goals = new ArrayList<Goal>();
+        }
+        return this.goals;
     }
 
 }

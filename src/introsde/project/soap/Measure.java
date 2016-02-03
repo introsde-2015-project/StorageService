@@ -18,9 +18,8 @@ import javax.xml.bind.annotation.XmlType;
  *       &lt;sequence>
  *         &lt;element name="mid" type="{http://www.w3.org/2001/XMLSchema}int"/>
  *         &lt;element name="created" type="{http://www.w3.org/2001/XMLSchema}string" minOccurs="0"/>
- *         &lt;element name="measure" type="{http://www.w3.org/2001/XMLSchema}string" minOccurs="0"/>
+ *         &lt;element name="measureName" type="{http://soap.project.introsde/}measureType" minOccurs="0"/>
  *         &lt;element name="value" type="{http://www.w3.org/2001/XMLSchema}double"/>
- *         &lt;element name="valueType" type="{http://www.w3.org/2001/XMLSchema}string" minOccurs="0"/>
  *       &lt;/sequence>
  *     &lt;/restriction>
  *   &lt;/complexContent>
@@ -33,17 +32,15 @@ import javax.xml.bind.annotation.XmlType;
 @XmlType(name = "Measure", propOrder = {
     "mid",
     "created",
-    "measure",
-    "value",
-    "valueType"
+    "measureName",
+    "value"
 })
 public class Measure {
 
     protected int mid;
     protected String created;
-    protected String measure;
+    protected String measureName;
     protected double value;
-    protected String valueType;
 
     /**
      * Gets the value of the mid property.
@@ -86,27 +83,27 @@ public class Measure {
     }
 
     /**
-     * Gets the value of the measure property.
+     * Gets the value of the measureName property.
      * 
      * @return
      *     possible object is
      *     {@link String }
      *     
      */
-    public String getMeasure() {
-        return measure;
+    public String getMeasureName() {
+        return measureName;
     }
 
     /**
-     * Sets the value of the measure property.
+     * Sets the value of the measureName property.
      * 
      * @param value
      *     allowed object is
      *     {@link String }
      *     
      */
-    public void setMeasure(String value) {
-        this.measure = value;
+    public void setMeasureName(String value) {
+        this.measureName = value;
     }
 
     /**
@@ -123,30 +120,6 @@ public class Measure {
      */
     public void setValue(double value) {
         this.value = value;
-    }
-
-    /**
-     * Gets the value of the valueType property.
-     * 
-     * @return
-     *     possible object is
-     *     {@link String }
-     *     
-     */
-    public String getValueType() {
-        return valueType;
-    }
-
-    /**
-     * Sets the value of the valueType property.
-     * 
-     * @param value
-     *     allowed object is
-     *     {@link String }
-     *     
-     */
-    public void setValueType(String value) {
-        this.valueType = value;
     }
 
 }

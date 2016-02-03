@@ -9,16 +9,16 @@ import javax.xml.bind.annotation.XmlType;
 
 
 /**
- * <p>Java class for readMeasureTypesResponse complex type.
+ * <p>Java class for readGoalTypesResponse complex type.
  * 
  * <p>The following schema fragment specifies the expected content contained within this class.
  * 
  * <pre>
- * &lt;complexType name="readMeasureTypesResponse">
+ * &lt;complexType name="readGoalTypesResponse">
  *   &lt;complexContent>
  *     &lt;restriction base="{http://www.w3.org/2001/XMLSchema}anyType">
  *       &lt;sequence>
- *         &lt;element name="measuretypes" type="{http://soap.project.introsde/}measureType" maxOccurs="unbounded" minOccurs="0"/>
+ *         &lt;element name="goaltypes" type="{http://soap.project.introsde/}goalType" maxOccurs="unbounded" minOccurs="0"/>
  *       &lt;/sequence>
  *     &lt;/restriction>
  *   &lt;/complexContent>
@@ -28,26 +28,26 @@ import javax.xml.bind.annotation.XmlType;
  * 
  */
 @XmlAccessorType(XmlAccessType.FIELD)
-@XmlType(name = "readMeasureTypesResponse", propOrder = {
-    "measuretypes"
+@XmlType(name = "readGoalTypesResponse", propOrder = {
+    "goaltypes"
 })
-public class ReadMeasureTypesResponse {
+public class ReadGoalTypesResponse {
 
-    protected List<String> measuretypes;
+    protected List<String> goaltypes;
 
     /**
-     * Gets the value of the measuretypes property.
+     * Gets the value of the goaltypes property.
      * 
      * <p>
      * This accessor method returns a reference to the live list,
      * not a snapshot. Therefore any modification you make to the
      * returned list will be present inside the JAXB object.
-     * This is why there is not a <CODE>set</CODE> method for the measuretypes property.
+     * This is why there is not a <CODE>set</CODE> method for the goaltypes property.
      * 
      * <p>
      * For example, to add a new item, do as follows:
      * <pre>
-     *    getMeasuretypes().add(newItem);
+     *    getGoaltypes().add(newItem);
      * </pre>
      * 
      * 
@@ -57,11 +57,11 @@ public class ReadMeasureTypesResponse {
      * 
      * 
      */
-    public List<String> getMeasuretypes() {
-        if (measuretypes == null) {
-            measuretypes = new ArrayList<String>();
+    public List<String> getGoaltypes() {
+        if (goaltypes == null) {
+            goaltypes = new ArrayList<String>();
         }
-        return this.measuretypes;
+        return this.goaltypes;
     }
 
 }

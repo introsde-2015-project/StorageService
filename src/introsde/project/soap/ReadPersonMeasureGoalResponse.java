@@ -9,16 +9,16 @@ import javax.xml.bind.annotation.XmlType;
 
 
 /**
- * <p>Java class for readMeasureTypesResponse complex type.
+ * <p>Java class for readPersonMeasureGoalResponse complex type.
  * 
  * <p>The following schema fragment specifies the expected content contained within this class.
  * 
  * <pre>
- * &lt;complexType name="readMeasureTypesResponse">
+ * &lt;complexType name="readPersonMeasureGoalResponse">
  *   &lt;complexContent>
  *     &lt;restriction base="{http://www.w3.org/2001/XMLSchema}anyType">
  *       &lt;sequence>
- *         &lt;element name="measuretypes" type="{http://soap.project.introsde/}measureType" maxOccurs="unbounded" minOccurs="0"/>
+ *         &lt;element name="personMeasureGoals" type="{http://soap.project.introsde/}Goal" maxOccurs="unbounded" minOccurs="0"/>
  *       &lt;/sequence>
  *     &lt;/restriction>
  *   &lt;/complexContent>
@@ -28,40 +28,40 @@ import javax.xml.bind.annotation.XmlType;
  * 
  */
 @XmlAccessorType(XmlAccessType.FIELD)
-@XmlType(name = "readMeasureTypesResponse", propOrder = {
-    "measuretypes"
+@XmlType(name = "readPersonMeasureGoalResponse", propOrder = {
+    "personMeasureGoals"
 })
-public class ReadMeasureTypesResponse {
+public class ReadPersonMeasureGoalResponse {
 
-    protected List<String> measuretypes;
+    protected List<Goal> personMeasureGoals;
 
     /**
-     * Gets the value of the measuretypes property.
+     * Gets the value of the personMeasureGoals property.
      * 
      * <p>
      * This accessor method returns a reference to the live list,
      * not a snapshot. Therefore any modification you make to the
      * returned list will be present inside the JAXB object.
-     * This is why there is not a <CODE>set</CODE> method for the measuretypes property.
+     * This is why there is not a <CODE>set</CODE> method for the personMeasureGoals property.
      * 
      * <p>
      * For example, to add a new item, do as follows:
      * <pre>
-     *    getMeasuretypes().add(newItem);
+     *    getPersonMeasureGoals().add(newItem);
      * </pre>
      * 
      * 
      * <p>
      * Objects of the following type(s) are allowed in the list
-     * {@link String }
+     * {@link Goal }
      * 
      * 
      */
-    public List<String> getMeasuretypes() {
-        if (measuretypes == null) {
-            measuretypes = new ArrayList<String>();
+    public List<Goal> getPersonMeasureGoals() {
+        if (personMeasureGoals == null) {
+            personMeasureGoals = new ArrayList<Goal>();
         }
-        return this.measuretypes;
+        return this.personMeasureGoals;
     }
 
 }
