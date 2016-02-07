@@ -7,16 +7,16 @@ import javax.xml.bind.annotation.XmlType;
 
 
 /**
- * <p>Java class for updatePersonMeasureResponse complex type.
+ * <p>Java class for createPersonTimelineResponse complex type.
  * 
  * <p>The following schema fragment specifies the expected content contained within this class.
  * 
  * <pre>
- * &lt;complexType name="updatePersonMeasureResponse">
+ * &lt;complexType name="createPersonTimelineResponse">
  *   &lt;complexContent>
  *     &lt;restriction base="{http://www.w3.org/2001/XMLSchema}anyType">
  *       &lt;sequence>
- *         &lt;element name="updatedMeasure" type="{http://soap.project.introsde/}Measure" minOccurs="0"/>
+ *         &lt;element name="newTimeline" type="{http://soap.project.introsde/}timeline" minOccurs="0"/>
  *       &lt;/sequence>
  *     &lt;/restriction>
  *   &lt;/complexContent>
@@ -26,35 +26,35 @@ import javax.xml.bind.annotation.XmlType;
  * 
  */
 @XmlAccessorType(XmlAccessType.FIELD)
-@XmlType(name = "updatePersonMeasureResponse", propOrder = {
-    "updatedMeasure"
+@XmlType(name = "createPersonTimelineResponse", propOrder = {
+    "newTimeline"
 })
-public class UpdatePersonMeasureResponse {
+public class CreatePersonTimelineResponse {
 
-    protected Measure updatedMeasure;
+    protected Timeline newTimeline;
 
     /**
-     * Gets the value of the updatedMeasure property.
+     * Gets the value of the newTimeline property.
      * 
      * @return
      *     possible object is
-     *     {@link Measure }
+     *     {@link Timeline }
      *     
      */
-    public Measure getUpdatedMeasure() {
-        return updatedMeasure;
+    public Timeline getNewTimeline() {
+        return newTimeline;
     }
 
     /**
-     * Sets the value of the updatedMeasure property.
+     * Sets the value of the newTimeline property.
      * 
      * @param value
      *     allowed object is
-     *     {@link Measure }
+     *     {@link Timeline }
      *     
      */
-    public void setUpdatedMeasure(Measure value) {
-        this.updatedMeasure = value;
+    public void setNewTimeline(Timeline value) {
+        this.newTimeline = value;
     }
 
 }

@@ -3,23 +3,23 @@ package introsde.project.soap;
 
 import javax.xml.bind.annotation.XmlAccessType;
 import javax.xml.bind.annotation.XmlAccessorType;
+import javax.xml.bind.annotation.XmlElement;
 import javax.xml.bind.annotation.XmlType;
 
 
 /**
- * <p>Java class for Measure complex type.
+ * <p>Java class for timeline complex type.
  * 
  * <p>The following schema fragment specifies the expected content contained within this class.
  * 
  * <pre>
- * &lt;complexType name="Measure">
+ * &lt;complexType name="timeline">
  *   &lt;complexContent>
  *     &lt;restriction base="{http://www.w3.org/2001/XMLSchema}anyType">
  *       &lt;sequence>
- *         &lt;element name="mid" type="{http://www.w3.org/2001/XMLSchema}int"/>
  *         &lt;element name="date" type="{http://www.w3.org/2001/XMLSchema}string" minOccurs="0"/>
- *         &lt;element name="measureName" type="{http://soap.project.introsde/}measureType" minOccurs="0"/>
- *         &lt;element name="value" type="{http://www.w3.org/2001/XMLSchema}double"/>
+ *         &lt;element name="JSONString" type="{http://www.w3.org/2001/XMLSchema}string" minOccurs="0"/>
+ *         &lt;element name="timelineId" type="{http://www.w3.org/2001/XMLSchema}int"/>
  *       &lt;/sequence>
  *     &lt;/restriction>
  *   &lt;/complexContent>
@@ -29,34 +29,17 @@ import javax.xml.bind.annotation.XmlType;
  * 
  */
 @XmlAccessorType(XmlAccessType.FIELD)
-@XmlType(name = "Measure", propOrder = {
-    "mid",
+@XmlType(name = "timeline", propOrder = {
     "date",
-    "measureName",
-    "value"
+    "jsonString",
+    "timelineId"
 })
-public class Measure {
+public class Timeline {
 
-    protected int mid;
     protected String date;
-    protected String measureName;
-    protected double value;
-
-    /**
-     * Gets the value of the mid property.
-     * 
-     */
-    public int getMid() {
-        return mid;
-    }
-
-    /**
-     * Sets the value of the mid property.
-     * 
-     */
-    public void setMid(int value) {
-        this.mid = value;
-    }
+    @XmlElement(name = "JSONString")
+    protected String jsonString;
+    protected int timelineId;
 
     /**
      * Gets the value of the date property.
@@ -83,43 +66,43 @@ public class Measure {
     }
 
     /**
-     * Gets the value of the measureName property.
+     * Gets the value of the jsonString property.
      * 
      * @return
      *     possible object is
      *     {@link String }
      *     
      */
-    public String getMeasureName() {
-        return measureName;
+    public String getJSONString() {
+        return jsonString;
     }
 
     /**
-     * Sets the value of the measureName property.
+     * Sets the value of the jsonString property.
      * 
      * @param value
      *     allowed object is
      *     {@link String }
      *     
      */
-    public void setMeasureName(String value) {
-        this.measureName = value;
+    public void setJSONString(String value) {
+        this.jsonString = value;
     }
 
     /**
-     * Gets the value of the value property.
+     * Gets the value of the timelineId property.
      * 
      */
-    public double getValue() {
-        return value;
+    public int getTimelineId() {
+        return timelineId;
     }
 
     /**
-     * Sets the value of the value property.
+     * Sets the value of the timelineId property.
      * 
      */
-    public void setValue(double value) {
-        this.value = value;
+    public void setTimelineId(int value) {
+        this.timelineId = value;
     }
 
 }

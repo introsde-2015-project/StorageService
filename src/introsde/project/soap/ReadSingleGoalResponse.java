@@ -7,16 +7,16 @@ import javax.xml.bind.annotation.XmlType;
 
 
 /**
- * <p>Java class for updatePersonMeasureResponse complex type.
+ * <p>Java class for readSingleGoalResponse complex type.
  * 
  * <p>The following schema fragment specifies the expected content contained within this class.
  * 
  * <pre>
- * &lt;complexType name="updatePersonMeasureResponse">
+ * &lt;complexType name="readSingleGoalResponse">
  *   &lt;complexContent>
  *     &lt;restriction base="{http://www.w3.org/2001/XMLSchema}anyType">
  *       &lt;sequence>
- *         &lt;element name="updatedMeasure" type="{http://soap.project.introsde/}Measure" minOccurs="0"/>
+ *         &lt;element name="singleGoal" type="{http://soap.project.introsde/}Goal" minOccurs="0"/>
  *       &lt;/sequence>
  *     &lt;/restriction>
  *   &lt;/complexContent>
@@ -26,35 +26,35 @@ import javax.xml.bind.annotation.XmlType;
  * 
  */
 @XmlAccessorType(XmlAccessType.FIELD)
-@XmlType(name = "updatePersonMeasureResponse", propOrder = {
-    "updatedMeasure"
+@XmlType(name = "readSingleGoalResponse", propOrder = {
+    "singleGoal"
 })
-public class UpdatePersonMeasureResponse {
+public class ReadSingleGoalResponse {
 
-    protected Measure updatedMeasure;
+    protected Goal singleGoal;
 
     /**
-     * Gets the value of the updatedMeasure property.
+     * Gets the value of the singleGoal property.
      * 
      * @return
      *     possible object is
-     *     {@link Measure }
+     *     {@link Goal }
      *     
      */
-    public Measure getUpdatedMeasure() {
-        return updatedMeasure;
+    public Goal getSingleGoal() {
+        return singleGoal;
     }
 
     /**
-     * Sets the value of the updatedMeasure property.
+     * Sets the value of the singleGoal property.
      * 
      * @param value
      *     allowed object is
-     *     {@link Measure }
+     *     {@link Goal }
      *     
      */
-    public void setUpdatedMeasure(Measure value) {
-        this.updatedMeasure = value;
+    public void setSingleGoal(Goal value) {
+        this.singleGoal = value;
     }
 
 }

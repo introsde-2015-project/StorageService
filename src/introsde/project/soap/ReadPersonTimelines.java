@@ -7,16 +7,15 @@ import javax.xml.bind.annotation.XmlType;
 
 
 /**
- * <p>Java class for createPersonGoal complex type.
+ * <p>Java class for readPersonTimelines complex type.
  * 
  * <p>The following schema fragment specifies the expected content contained within this class.
  * 
  * <pre>
- * &lt;complexType name="createPersonGoal">
+ * &lt;complexType name="readPersonTimelines">
  *   &lt;complexContent>
  *     &lt;restriction base="{http://www.w3.org/2001/XMLSchema}anyType">
  *       &lt;sequence>
- *         &lt;element name="goal" type="{http://soap.project.introsde/}Goal" minOccurs="0"/>
  *         &lt;element name="personId" type="{http://www.w3.org/2001/XMLSchema}int"/>
  *       &lt;/sequence>
  *     &lt;/restriction>
@@ -27,38 +26,12 @@ import javax.xml.bind.annotation.XmlType;
  * 
  */
 @XmlAccessorType(XmlAccessType.FIELD)
-@XmlType(name = "createPersonGoal", propOrder = {
-    "goal",
+@XmlType(name = "readPersonTimelines", propOrder = {
     "personId"
 })
-public class CreatePersonGoal {
+public class ReadPersonTimelines {
 
-    protected Goal goal;
     protected int personId;
-
-    /**
-     * Gets the value of the goal property.
-     * 
-     * @return
-     *     possible object is
-     *     {@link Goal }
-     *     
-     */
-    public Goal getGoal() {
-        return goal;
-    }
-
-    /**
-     * Sets the value of the goal property.
-     * 
-     * @param value
-     *     allowed object is
-     *     {@link Goal }
-     *     
-     */
-    public void setGoal(Goal value) {
-        this.goal = value;
-    }
 
     /**
      * Gets the value of the personId property.

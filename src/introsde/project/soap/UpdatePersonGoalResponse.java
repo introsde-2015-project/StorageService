@@ -16,7 +16,7 @@ import javax.xml.bind.annotation.XmlType;
  *   &lt;complexContent>
  *     &lt;restriction base="{http://www.w3.org/2001/XMLSchema}anyType">
  *       &lt;sequence>
- *         &lt;element name="goalId" type="{http://www.w3.org/2001/XMLSchema}int"/>
+ *         &lt;element name="updatedGoal" type="{http://soap.project.introsde/}Goal" minOccurs="0"/>
  *       &lt;/sequence>
  *     &lt;/restriction>
  *   &lt;/complexContent>
@@ -27,26 +27,34 @@ import javax.xml.bind.annotation.XmlType;
  */
 @XmlAccessorType(XmlAccessType.FIELD)
 @XmlType(name = "updatePersonGoalResponse", propOrder = {
-    "goalId"
+    "updatedGoal"
 })
 public class UpdatePersonGoalResponse {
 
-    protected int goalId;
+    protected Goal updatedGoal;
 
     /**
-     * Gets the value of the goalId property.
+     * Gets the value of the updatedGoal property.
      * 
+     * @return
+     *     possible object is
+     *     {@link Goal }
+     *     
      */
-    public int getGoalId() {
-        return goalId;
+    public Goal getUpdatedGoal() {
+        return updatedGoal;
     }
 
     /**
-     * Sets the value of the goalId property.
+     * Sets the value of the updatedGoal property.
      * 
+     * @param value
+     *     allowed object is
+     *     {@link Goal }
+     *     
      */
-    public void setGoalId(int value) {
-        this.goalId = value;
+    public void setUpdatedGoal(Goal value) {
+        this.updatedGoal = value;
     }
 
 }

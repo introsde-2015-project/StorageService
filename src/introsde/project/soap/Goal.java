@@ -20,8 +20,7 @@ import javax.xml.bind.annotation.XmlType;
  *         &lt;element name="measureName" type="{http://soap.project.introsde/}measureType" minOccurs="0"/>
  *         &lt;element name="goalName" type="{http://soap.project.introsde/}goalType" minOccurs="0"/>
  *         &lt;element name="value" type="{http://www.w3.org/2001/XMLSchema}double"/>
- *         &lt;element name="created" type="{http://www.w3.org/2001/XMLSchema}string" minOccurs="0"/>
- *         &lt;element name="end" type="{http://www.w3.org/2001/XMLSchema}string" minOccurs="0"/>
+ *         &lt;element name="date" type="{http://www.w3.org/2001/XMLSchema}string" minOccurs="0"/>
  *       &lt;/sequence>
  *     &lt;/restriction>
  *   &lt;/complexContent>
@@ -36,8 +35,7 @@ import javax.xml.bind.annotation.XmlType;
     "measureName",
     "goalName",
     "value",
-    "created",
-    "end"
+    "date"
 })
 public class Goal {
 
@@ -45,8 +43,7 @@ public class Goal {
     protected String measureName;
     protected String goalName;
     protected double value;
-    protected String created;
-    protected String end;
+    protected String date;
 
     /**
      * Gets the value of the gid property.
@@ -129,51 +126,27 @@ public class Goal {
     }
 
     /**
-     * Gets the value of the created property.
+     * Gets the value of the date property.
      * 
      * @return
      *     possible object is
      *     {@link String }
      *     
      */
-    public String getCreated() {
-        return created;
+    public String getDate() {
+        return date;
     }
 
     /**
-     * Sets the value of the created property.
+     * Sets the value of the date property.
      * 
      * @param value
      *     allowed object is
      *     {@link String }
      *     
      */
-    public void setCreated(String value) {
-        this.created = value;
-    }
-
-    /**
-     * Gets the value of the end property.
-     * 
-     * @return
-     *     possible object is
-     *     {@link String }
-     *     
-     */
-    public String getEnd() {
-        return end;
-    }
-
-    /**
-     * Sets the value of the end property.
-     * 
-     * @param value
-     *     allowed object is
-     *     {@link String }
-     *     
-     */
-    public void setEnd(String value) {
-        this.end = value;
+    public void setDate(String value) {
+        this.date = value;
     }
 
 }

@@ -16,7 +16,7 @@ import javax.xml.bind.annotation.XmlType;
  *   &lt;complexContent>
  *     &lt;restriction base="{http://www.w3.org/2001/XMLSchema}anyType">
  *       &lt;sequence>
- *         &lt;element name="personId" type="{http://www.w3.org/2001/XMLSchema}int"/>
+ *         &lt;element name="updatedPerson" type="{http://soap.project.introsde/}Person" minOccurs="0"/>
  *       &lt;/sequence>
  *     &lt;/restriction>
  *   &lt;/complexContent>
@@ -27,26 +27,34 @@ import javax.xml.bind.annotation.XmlType;
  */
 @XmlAccessorType(XmlAccessType.FIELD)
 @XmlType(name = "updatePersonResponse", propOrder = {
-    "personId"
+    "updatedPerson"
 })
 public class UpdatePersonResponse {
 
-    protected int personId;
+    protected Person updatedPerson;
 
     /**
-     * Gets the value of the personId property.
+     * Gets the value of the updatedPerson property.
      * 
+     * @return
+     *     possible object is
+     *     {@link Person }
+     *     
      */
-    public int getPersonId() {
-        return personId;
+    public Person getUpdatedPerson() {
+        return updatedPerson;
     }
 
     /**
-     * Sets the value of the personId property.
+     * Sets the value of the updatedPerson property.
      * 
+     * @param value
+     *     allowed object is
+     *     {@link Person }
+     *     
      */
-    public void setPersonId(int value) {
-        this.personId = value;
+    public void setUpdatedPerson(Person value) {
+        this.updatedPerson = value;
     }
 
 }

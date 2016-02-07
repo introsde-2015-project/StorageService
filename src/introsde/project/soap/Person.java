@@ -25,6 +25,7 @@ import javax.xml.bind.annotation.XmlType;
  *         &lt;element name="birthdate" type="{http://www.w3.org/2001/XMLSchema}string" minOccurs="0"/>
  *         &lt;element name="healthProfile" type="{http://soap.project.introsde/}healthProfile" minOccurs="0"/>
  *         &lt;element name="goals" type="{http://soap.project.introsde/}Goal" maxOccurs="unbounded" minOccurs="0"/>
+ *         &lt;element name="imageUrl" type="{http://www.w3.org/2001/XMLSchema}string" minOccurs="0"/>
  *       &lt;/sequence>
  *     &lt;/restriction>
  *   &lt;/complexContent>
@@ -40,7 +41,8 @@ import javax.xml.bind.annotation.XmlType;
     "lastname",
     "birthdate",
     "healthProfile",
-    "goals"
+    "goals",
+    "imageUrl"
 })
 public class Person {
 
@@ -51,6 +53,7 @@ public class Person {
     protected HealthProfile healthProfile;
     @XmlElement(nillable = true)
     protected List<Goal> goals;
+    protected String imageUrl;
 
     /**
      * Gets the value of the idPerson property.
@@ -191,6 +194,30 @@ public class Person {
             goals = new ArrayList<Goal>();
         }
         return this.goals;
+    }
+
+    /**
+     * Gets the value of the imageUrl property.
+     * 
+     * @return
+     *     possible object is
+     *     {@link String }
+     *     
+     */
+    public String getImageUrl() {
+        return imageUrl;
+    }
+
+    /**
+     * Sets the value of the imageUrl property.
+     * 
+     * @param value
+     *     allowed object is
+     *     {@link String }
+     *     
+     */
+    public void setImageUrl(String value) {
+        this.imageUrl = value;
     }
 
 }
