@@ -29,6 +29,75 @@ public interface People {
      * 
      * @param personId
      * @return
+     *     returns boolean
+     */
+    @WebMethod
+    @WebResult(name = "deletedValue", targetNamespace = "")
+    @RequestWrapper(localName = "deletePerson", targetNamespace = "http://soap.project.introsde/", className = "introsde.project.soap.DeletePerson")
+    @ResponseWrapper(localName = "deletePersonResponse", targetNamespace = "http://soap.project.introsde/", className = "introsde.project.soap.DeletePersonResponse")
+    @Action(input = "http://soap.project.introsde/People/deletePersonRequest", output = "http://soap.project.introsde/People/deletePersonResponse")
+    public boolean deletePerson(
+        @WebParam(name = "personId", targetNamespace = "")
+        int personId);
+
+    /**
+     * 
+     * @return
+     *     returns java.util.List<java.lang.String>
+     */
+    @WebMethod
+    @WebResult(name = "goaltypes", targetNamespace = "")
+    @RequestWrapper(localName = "readGoalTypes", targetNamespace = "http://soap.project.introsde/", className = "introsde.project.soap.ReadGoalTypes")
+    @ResponseWrapper(localName = "readGoalTypesResponse", targetNamespace = "http://soap.project.introsde/", className = "introsde.project.soap.ReadGoalTypesResponse")
+    @Action(input = "http://soap.project.introsde/People/readGoalTypesRequest", output = "http://soap.project.introsde/People/readGoalTypesResponse")
+    public List<String> readGoalTypes();
+
+    /**
+     * 
+     * @return
+     *     returns java.util.List<introsde.project.soap.Person>
+     */
+    @WebMethod
+    @WebResult(name = "people", targetNamespace = "")
+    @RequestWrapper(localName = "readPersonList", targetNamespace = "http://soap.project.introsde/", className = "introsde.project.soap.ReadPersonList")
+    @ResponseWrapper(localName = "readPersonListResponse", targetNamespace = "http://soap.project.introsde/", className = "introsde.project.soap.ReadPersonListResponse")
+    @Action(input = "http://soap.project.introsde/People/readPersonListRequest", output = "http://soap.project.introsde/People/readPersonListResponse")
+    public List<Person> readPersonList();
+
+    /**
+     * 
+     * @param person
+     * @return
+     *     returns introsde.project.soap.Person
+     */
+    @WebMethod
+    @WebResult(name = "newPerson", targetNamespace = "")
+    @RequestWrapper(localName = "createPerson", targetNamespace = "http://soap.project.introsde/", className = "introsde.project.soap.CreatePerson")
+    @ResponseWrapper(localName = "createPersonResponse", targetNamespace = "http://soap.project.introsde/", className = "introsde.project.soap.CreatePersonResponse")
+    @Action(input = "http://soap.project.introsde/People/createPersonRequest", output = "http://soap.project.introsde/People/createPersonResponse")
+    public Person createPerson(
+        @WebParam(name = "person", targetNamespace = "")
+        Person person);
+
+    /**
+     * 
+     * @param person
+     * @return
+     *     returns introsde.project.soap.Person
+     */
+    @WebMethod
+    @WebResult(name = "updatedPerson", targetNamespace = "")
+    @RequestWrapper(localName = "updatePerson", targetNamespace = "http://soap.project.introsde/", className = "introsde.project.soap.UpdatePerson")
+    @ResponseWrapper(localName = "updatePersonResponse", targetNamespace = "http://soap.project.introsde/", className = "introsde.project.soap.UpdatePersonResponse")
+    @Action(input = "http://soap.project.introsde/People/updatePersonRequest", output = "http://soap.project.introsde/People/updatePersonResponse")
+    public Person updatePerson(
+        @WebParam(name = "person", targetNamespace = "")
+        Person person);
+
+    /**
+     * 
+     * @param personId
+     * @return
      *     returns introsde.project.soap.Person
      */
     @WebMethod
@@ -42,15 +111,33 @@ public interface People {
 
     /**
      * 
+     * @param personId
+     * @param measureType
      * @return
-     *     returns java.util.List<introsde.project.soap.Person>
+     *     returns java.util.List<introsde.project.soap.Measure>
      */
     @WebMethod
-    @WebResult(name = "people", targetNamespace = "")
-    @RequestWrapper(localName = "readPersonList", targetNamespace = "http://soap.project.introsde/", className = "introsde.project.soap.ReadPersonList")
-    @ResponseWrapper(localName = "readPersonListResponse", targetNamespace = "http://soap.project.introsde/", className = "introsde.project.soap.ReadPersonListResponse")
-    @Action(input = "http://soap.project.introsde/People/readPersonListRequest", output = "http://soap.project.introsde/People/readPersonListResponse")
-    public List<Person> readPersonList();
+    @WebResult(name = "measurehistory", targetNamespace = "")
+    @RequestWrapper(localName = "readPersonMeasureHistory", targetNamespace = "http://soap.project.introsde/", className = "introsde.project.soap.ReadPersonMeasureHistory")
+    @ResponseWrapper(localName = "readPersonMeasureHistoryResponse", targetNamespace = "http://soap.project.introsde/", className = "introsde.project.soap.ReadPersonMeasureHistoryResponse")
+    @Action(input = "http://soap.project.introsde/People/readPersonMeasureHistoryRequest", output = "http://soap.project.introsde/People/readPersonMeasureHistoryResponse")
+    public List<Measure> readPersonMeasureHistory(
+        @WebParam(name = "personId", targetNamespace = "")
+        int personId,
+        @WebParam(name = "measureType", targetNamespace = "")
+        String measureType);
+
+    /**
+     * 
+     * @return
+     *     returns java.util.List<java.lang.String>
+     */
+    @WebMethod
+    @WebResult(name = "measuretypes", targetNamespace = "")
+    @RequestWrapper(localName = "readMeasureTypes", targetNamespace = "http://soap.project.introsde/", className = "introsde.project.soap.ReadMeasureTypes")
+    @ResponseWrapper(localName = "readMeasureTypesResponse", targetNamespace = "http://soap.project.introsde/", className = "introsde.project.soap.ReadMeasureTypesResponse")
+    @Action(input = "http://soap.project.introsde/People/readMeasureTypesRequest", output = "http://soap.project.introsde/People/readMeasureTypesResponse")
+    public List<String> readMeasureTypes();
 
     /**
      * 
@@ -159,18 +246,6 @@ public interface People {
         int personId,
         @WebParam(name = "goal", targetNamespace = "")
         Goal goal);
-
-    /**
-     * 
-     * @return
-     *     returns java.util.List<java.lang.String>
-     */
-    @WebMethod
-    @WebResult(name = "goaltypes", targetNamespace = "")
-    @RequestWrapper(localName = "readGoalTypes", targetNamespace = "http://soap.project.introsde/", className = "introsde.project.soap.ReadGoalTypes")
-    @ResponseWrapper(localName = "readGoalTypesResponse", targetNamespace = "http://soap.project.introsde/", className = "introsde.project.soap.ReadGoalTypesResponse")
-    @Action(input = "http://soap.project.introsde/People/readGoalTypesRequest", output = "http://soap.project.introsde/People/readGoalTypesResponse")
-    public List<String> readGoalTypes();
 
     /**
      * 
@@ -306,80 +381,5 @@ public interface People {
         int personId,
         @WebParam(name = "timelineId", targetNamespace = "")
         int timelineId);
-
-    /**
-     * 
-     * @param person
-     * @return
-     *     returns introsde.project.soap.Person
-     */
-    @WebMethod
-    @WebResult(name = "newPerson", targetNamespace = "")
-    @RequestWrapper(localName = "createPerson", targetNamespace = "http://soap.project.introsde/", className = "introsde.project.soap.CreatePerson")
-    @ResponseWrapper(localName = "createPersonResponse", targetNamespace = "http://soap.project.introsde/", className = "introsde.project.soap.CreatePersonResponse")
-    @Action(input = "http://soap.project.introsde/People/createPersonRequest", output = "http://soap.project.introsde/People/createPersonResponse")
-    public Person createPerson(
-        @WebParam(name = "person", targetNamespace = "")
-        Person person);
-
-    /**
-     * 
-     * @param person
-     * @return
-     *     returns introsde.project.soap.Person
-     */
-    @WebMethod
-    @WebResult(name = "updatedPerson", targetNamespace = "")
-    @RequestWrapper(localName = "updatePerson", targetNamespace = "http://soap.project.introsde/", className = "introsde.project.soap.UpdatePerson")
-    @ResponseWrapper(localName = "updatePersonResponse", targetNamespace = "http://soap.project.introsde/", className = "introsde.project.soap.UpdatePersonResponse")
-    @Action(input = "http://soap.project.introsde/People/updatePersonRequest", output = "http://soap.project.introsde/People/updatePersonResponse")
-    public Person updatePerson(
-        @WebParam(name = "person", targetNamespace = "")
-        Person person);
-
-    /**
-     * 
-     * @param personId
-     * @return
-     *     returns boolean
-     */
-    @WebMethod
-    @WebResult(name = "deletedValue", targetNamespace = "")
-    @RequestWrapper(localName = "deletePerson", targetNamespace = "http://soap.project.introsde/", className = "introsde.project.soap.DeletePerson")
-    @ResponseWrapper(localName = "deletePersonResponse", targetNamespace = "http://soap.project.introsde/", className = "introsde.project.soap.DeletePersonResponse")
-    @Action(input = "http://soap.project.introsde/People/deletePersonRequest", output = "http://soap.project.introsde/People/deletePersonResponse")
-    public boolean deletePerson(
-        @WebParam(name = "personId", targetNamespace = "")
-        int personId);
-
-    /**
-     * 
-     * @param personId
-     * @param measureType
-     * @return
-     *     returns java.util.List<introsde.project.soap.Measure>
-     */
-    @WebMethod
-    @WebResult(name = "measurehistory", targetNamespace = "")
-    @RequestWrapper(localName = "readPersonMeasureHistory", targetNamespace = "http://soap.project.introsde/", className = "introsde.project.soap.ReadPersonMeasureHistory")
-    @ResponseWrapper(localName = "readPersonMeasureHistoryResponse", targetNamespace = "http://soap.project.introsde/", className = "introsde.project.soap.ReadPersonMeasureHistoryResponse")
-    @Action(input = "http://soap.project.introsde/People/readPersonMeasureHistoryRequest", output = "http://soap.project.introsde/People/readPersonMeasureHistoryResponse")
-    public List<Measure> readPersonMeasureHistory(
-        @WebParam(name = "personId", targetNamespace = "")
-        int personId,
-        @WebParam(name = "measureType", targetNamespace = "")
-        String measureType);
-
-    /**
-     * 
-     * @return
-     *     returns java.util.List<java.lang.String>
-     */
-    @WebMethod
-    @WebResult(name = "measuretypes", targetNamespace = "")
-    @RequestWrapper(localName = "readMeasureTypes", targetNamespace = "http://soap.project.introsde/", className = "introsde.project.soap.ReadMeasureTypes")
-    @ResponseWrapper(localName = "readMeasureTypesResponse", targetNamespace = "http://soap.project.introsde/", className = "introsde.project.soap.ReadMeasureTypesResponse")
-    @Action(input = "http://soap.project.introsde/People/readMeasureTypesRequest", output = "http://soap.project.introsde/People/readMeasureTypesResponse")
-    public List<String> readMeasureTypes();
 
 }
