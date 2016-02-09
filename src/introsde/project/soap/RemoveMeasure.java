@@ -16,6 +16,7 @@ import javax.xml.bind.annotation.XmlType;
  *   &lt;complexContent>
  *     &lt;restriction base="{http://www.w3.org/2001/XMLSchema}anyType">
  *       &lt;sequence>
+ *         &lt;element name="personId" type="{http://www.w3.org/2001/XMLSchema}int"/>
  *         &lt;element name="measureId" type="{http://www.w3.org/2001/XMLSchema}int"/>
  *       &lt;/sequence>
  *     &lt;/restriction>
@@ -27,11 +28,29 @@ import javax.xml.bind.annotation.XmlType;
  */
 @XmlAccessorType(XmlAccessType.FIELD)
 @XmlType(name = "removeMeasure", propOrder = {
+    "personId",
     "measureId"
 })
 public class RemoveMeasure {
 
+    protected int personId;
     protected int measureId;
+
+    /**
+     * Gets the value of the personId property.
+     * 
+     */
+    public int getPersonId() {
+        return personId;
+    }
+
+    /**
+     * Sets the value of the personId property.
+     * 
+     */
+    public void setPersonId(int value) {
+        this.personId = value;
+    }
 
     /**
      * Gets the value of the measureId property.

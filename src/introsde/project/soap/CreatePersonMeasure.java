@@ -18,6 +18,7 @@ import javax.xml.bind.annotation.XmlType;
  *       &lt;sequence>
  *         &lt;element name="personId" type="{http://www.w3.org/2001/XMLSchema}int"/>
  *         &lt;element name="measure" type="{http://soap.project.introsde/}Measure" minOccurs="0"/>
+ *         &lt;element name="measureType" type="{http://www.w3.org/2001/XMLSchema}string" minOccurs="0"/>
  *       &lt;/sequence>
  *     &lt;/restriction>
  *   &lt;/complexContent>
@@ -29,12 +30,14 @@ import javax.xml.bind.annotation.XmlType;
 @XmlAccessorType(XmlAccessType.FIELD)
 @XmlType(name = "createPersonMeasure", propOrder = {
     "personId",
-    "measure"
+    "measure",
+    "measureType"
 })
 public class CreatePersonMeasure {
 
     protected int personId;
     protected Measure measure;
+    protected String measureType;
 
     /**
      * Gets the value of the personId property.
@@ -74,6 +77,30 @@ public class CreatePersonMeasure {
      */
     public void setMeasure(Measure value) {
         this.measure = value;
+    }
+
+    /**
+     * Gets the value of the measureType property.
+     * 
+     * @return
+     *     possible object is
+     *     {@link String }
+     *     
+     */
+    public String getMeasureType() {
+        return measureType;
+    }
+
+    /**
+     * Sets the value of the measureType property.
+     * 
+     * @param value
+     *     allowed object is
+     *     {@link String }
+     *     
+     */
+    public void setMeasureType(String value) {
+        this.measureType = value;
     }
 
 }

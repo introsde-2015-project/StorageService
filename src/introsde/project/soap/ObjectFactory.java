@@ -38,7 +38,6 @@ public class ObjectFactory {
     private final static QName _ReadPersonListResponse_QNAME = new QName("http://soap.project.introsde/", "readPersonListResponse");
     private final static QName _DeletePersonResponse_QNAME = new QName("http://soap.project.introsde/", "deletePersonResponse");
     private final static QName _ReadPersonMeasureHistory_QNAME = new QName("http://soap.project.introsde/", "readPersonMeasureHistory");
-    private final static QName _UpdatePersonMeasureResponse_QNAME = new QName("http://soap.project.introsde/", "updatePersonMeasureResponse");
     private final static QName _ReadPersonList_QNAME = new QName("http://soap.project.introsde/", "readPersonList");
     private final static QName _RemoveMeasure_QNAME = new QName("http://soap.project.introsde/", "removeMeasure");
     private final static QName _CreatePersonGoal_QNAME = new QName("http://soap.project.introsde/", "createPersonGoal");
@@ -57,7 +56,6 @@ public class ObjectFactory {
     private final static QName _ReadPersonGoalsResponse_QNAME = new QName("http://soap.project.introsde/", "readPersonGoalsResponse");
     private final static QName _CreatePersonMeasureResponse_QNAME = new QName("http://soap.project.introsde/", "createPersonMeasureResponse");
     private final static QName _CreatePersonMeasure_QNAME = new QName("http://soap.project.introsde/", "createPersonMeasure");
-    private final static QName _UpdatePersonMeasure_QNAME = new QName("http://soap.project.introsde/", "updatePersonMeasure");
     private final static QName _UpdatePersonResponse_QNAME = new QName("http://soap.project.introsde/", "updatePersonResponse");
     private final static QName _ReadPersonResponse_QNAME = new QName("http://soap.project.introsde/", "readPersonResponse");
     private final static QName _ReadGoalTypes_QNAME = new QName("http://soap.project.introsde/", "readGoalTypes");
@@ -186,14 +184,6 @@ public class ObjectFactory {
      */
     public ReadPersonMeasureHistory createReadPersonMeasureHistory() {
         return new ReadPersonMeasureHistory();
-    }
-
-    /**
-     * Create an instance of {@link UpdatePersonMeasureResponse }
-     * 
-     */
-    public UpdatePersonMeasureResponse createUpdatePersonMeasureResponse() {
-        return new UpdatePersonMeasureResponse();
     }
 
     /**
@@ -338,14 +328,6 @@ public class ObjectFactory {
      */
     public CreatePersonMeasure createCreatePersonMeasure() {
         return new CreatePersonMeasure();
-    }
-
-    /**
-     * Create an instance of {@link UpdatePersonMeasure }
-     * 
-     */
-    public UpdatePersonMeasure createUpdatePersonMeasure() {
-        return new UpdatePersonMeasure();
     }
 
     /**
@@ -595,15 +577,6 @@ public class ObjectFactory {
     }
 
     /**
-     * Create an instance of {@link JAXBElement }{@code <}{@link UpdatePersonMeasureResponse }{@code >}}
-     * 
-     */
-    @XmlElementDecl(namespace = "http://soap.project.introsde/", name = "updatePersonMeasureResponse")
-    public JAXBElement<UpdatePersonMeasureResponse> createUpdatePersonMeasureResponse(UpdatePersonMeasureResponse value) {
-        return new JAXBElement<UpdatePersonMeasureResponse>(_UpdatePersonMeasureResponse_QNAME, UpdatePersonMeasureResponse.class, null, value);
-    }
-
-    /**
      * Create an instance of {@link JAXBElement }{@code <}{@link ReadPersonList }{@code >}}
      * 
      */
@@ -763,15 +736,6 @@ public class ObjectFactory {
     @XmlElementDecl(namespace = "http://soap.project.introsde/", name = "createPersonMeasure")
     public JAXBElement<CreatePersonMeasure> createCreatePersonMeasure(CreatePersonMeasure value) {
         return new JAXBElement<CreatePersonMeasure>(_CreatePersonMeasure_QNAME, CreatePersonMeasure.class, null, value);
-    }
-
-    /**
-     * Create an instance of {@link JAXBElement }{@code <}{@link UpdatePersonMeasure }{@code >}}
-     * 
-     */
-    @XmlElementDecl(namespace = "http://soap.project.introsde/", name = "updatePersonMeasure")
-    public JAXBElement<UpdatePersonMeasure> createUpdatePersonMeasure(UpdatePersonMeasure value) {
-        return new JAXBElement<UpdatePersonMeasure>(_UpdatePersonMeasure_QNAME, UpdatePersonMeasure.class, null, value);
     }
 
     /**

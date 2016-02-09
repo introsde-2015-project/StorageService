@@ -44,13 +44,13 @@ public class StorageService {
     @Produces(MediaType.APPLICATION_JSON)
     @Path("/persons")
     public List<Person> getPersons() {
-        List<Person> persons = people.readPersonList();
-        return persons;
+        return people.readPersonList();
     }
     
     @POST
     @Produces(MediaType.APPLICATION_JSON)
     @Consumes(MediaType.APPLICATION_JSON)
+    @Path("/persons")
     public Person newPerson(Person person){           
         return people.createPerson(person);
     }
@@ -60,8 +60,7 @@ public class StorageService {
     @Produces(MediaType.APPLICATION_JSON)
     @Path("/persons/{personId}")
     public Person getPerson(@PathParam("personId") int idPerson) {
-    	Person person = people.readPerson(idPerson);
-        return person;
+    	return people.readPerson(idPerson);
     }
 
     @PUT
@@ -72,22 +71,19 @@ public class StorageService {
         if (existing == null) {
         	throw new WebApplicationException(Response.Status.NOT_FOUND);
         } else {
-        	// Set missing attributes for person
-            person.setIdPerson(idPerson);
-            people.updatePerson(person);
+            return people.updatePerson(person, idPerson);
         }
-        return person;
     }
 
     @DELETE
     @Consumes(MediaType.APPLICATION_JSON )
     @Path("/persons/{personId}")
-    public void deletePerson(@PathParam("personId") int idPerson) {
+    public boolean deletePerson(@PathParam("personId") int idPerson) {
         Person p = people.readPerson(idPerson);
         if (p == null) {
         	throw new WebApplicationException(Response.Status.NOT_FOUND);
         }
-        people.deletePerson(p.getIdPerson());
+        return people.deletePerson(p.getIdPerson());
     }
     
     @GET
@@ -107,8 +103,7 @@ public class StorageService {
     @Path("/persons/{personId}/{measureType}")
     public Measure newMeasure(Measure measure, @PathParam("personId") int idPerson, @PathParam("measureType") String measureType) throws IOException, ParseException {
     	// Link person and healthprofile to measure and add missing attributes
-        measure.setMeasureName(measureType);
-        return people.createPersonMeasure(idPerson, measure);
+        return people.createPersonMeasure(idPerson, measure, measureType);
     }
     
     @GET
@@ -125,12 +120,12 @@ public class StorageService {
     @DELETE
     @Consumes(MediaType.APPLICATION_JSON )
     @Path("/persons/{personId}/{measureType}/{measureId}")
-    public void deleteMeasure(@PathParam("personId") int idPerson, @PathParam("measureType") String measureType, @PathParam("measureId") int measureId) {
+    public boolean deleteMeasure(@PathParam("personId") int idPerson, @PathParam("measureType") String measureType, @PathParam("measureId") int measureId) {
     	Measure measure = people.readPersonMeasure(idPerson, measureType, measureId);
         if (measure == null) {
         	throw new WebApplicationException(Response.Status.NOT_FOUND);
         }
-        people.removeMeasure(measureId);
+        return people.removeMeasure(idPerson, measureId);
     }
     
     @GET
@@ -171,25 +166,22 @@ public class StorageService {
     @Path("/persons/{personId}/goals/{goalId}")
     public Goal updateGoal(Goal goal, @PathParam("personId") int idPerson, @PathParam("goalId") int goalId) {
         Goal existing = people.readSingleGoal(idPerson, goalId);
-        Goal updatedGoal = null;
         if (existing == null) {
         	throw new WebApplicationException(Response.Status.NOT_FOUND);
         } else {
-        	goal.setGid(existing.getGid());
-            updatedGoal = people.updatePersonGoal(idPerson, goal);
+            return people.updatePersonGoal(idPerson, goal, goalId);
         }
-        return updatedGoal;
     }
     
     @DELETE
     @Consumes(MediaType.APPLICATION_JSON )
     @Path("/persons/{personId}/goals/{goalId}")
-    public void deleteGoal(@PathParam("personId") int idPerson, @PathParam("goalId") int goalId) {
+    public boolean deleteGoal(@PathParam("personId") int idPerson, @PathParam("goalId") int goalId) {
     	Goal goal = people.readSingleGoal(idPerson, goalId);
         if (goal == null) {
         	throw new WebApplicationException(Response.Status.NOT_FOUND);
         }
-        people.removeGoal(idPerson, goalId);
+        return people.removeGoal(idPerson, goalId);
     }
 
     @POST
@@ -226,12 +218,12 @@ public class StorageService {
     @DELETE
     @Consumes(MediaType.APPLICATION_JSON )
     @Path("/persons/{personId}/timelines/{timelineId}")
-    public void deleteTimeline(@PathParam("personId") int idPerson, @PathParam("timelineId") int timelineId) {
+    public boolean deleteTimeline(@PathParam("personId") int idPerson, @PathParam("timelineId") int timelineId) {
     	Timeline tl = people.readSingleTimeline(idPerson, timelineId);
         if (tl == null) {
         	throw new WebApplicationException(Response.Status.NOT_FOUND);
         }
-        people.removeTimeline(timelineId);
+        return people.removeTimeline(idPerson, timelineId);
     }
 
     @POST

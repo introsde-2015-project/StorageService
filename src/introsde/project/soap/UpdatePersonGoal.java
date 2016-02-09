@@ -18,6 +18,7 @@ import javax.xml.bind.annotation.XmlType;
  *       &lt;sequence>
  *         &lt;element name="personId" type="{http://www.w3.org/2001/XMLSchema}int"/>
  *         &lt;element name="goal" type="{http://soap.project.introsde/}Goal" minOccurs="0"/>
+ *         &lt;element name="goalId" type="{http://www.w3.org/2001/XMLSchema}int"/>
  *       &lt;/sequence>
  *     &lt;/restriction>
  *   &lt;/complexContent>
@@ -29,12 +30,14 @@ import javax.xml.bind.annotation.XmlType;
 @XmlAccessorType(XmlAccessType.FIELD)
 @XmlType(name = "updatePersonGoal", propOrder = {
     "personId",
-    "goal"
+    "goal",
+    "goalId"
 })
 public class UpdatePersonGoal {
 
     protected int personId;
     protected Goal goal;
+    protected int goalId;
 
     /**
      * Gets the value of the personId property.
@@ -74,6 +77,22 @@ public class UpdatePersonGoal {
      */
     public void setGoal(Goal value) {
         this.goal = value;
+    }
+
+    /**
+     * Gets the value of the goalId property.
+     * 
+     */
+    public int getGoalId() {
+        return goalId;
+    }
+
+    /**
+     * Sets the value of the goalId property.
+     * 
+     */
+    public void setGoalId(int value) {
+        this.goalId = value;
     }
 
 }
